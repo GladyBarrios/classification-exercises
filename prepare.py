@@ -81,7 +81,7 @@ def split_telco_data():
 
 
 
-def prep_telco_data():
+def prep_telco_data(df):
     # Drop duplicate columns
     df.drop(columns=['payment_type_id', 'internet_service_type_id', 'contract_type_id', 'customer_id'], inplace=True)
        
@@ -115,8 +115,5 @@ def prep_telco_data():
     
     # Concatenate dummy dataframe to original 
     df = pd.concat([df, dummy_df], axis=1)
-    
-    # split the data
-    train, validate, test = split_telco_data(df)
-    
-    return train, validate, test
+     
+    return df
